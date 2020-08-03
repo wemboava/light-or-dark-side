@@ -10,13 +10,31 @@ interface ITheme {
 }
 
 export const Container = styled.div<ITheme>`
+  height: 100vh;
   max-width: 100%;
   margin: auto;
   background: ${({ theme }) => theme.backgroundColor};
+
+  .back-container {
+    padding: 30px;
+    button {
+      display: flex;
+      align-items: center;
+      background: transparent;
+      color: ${({ theme }) => theme.fontColor};
+      svg {
+        width: 30px;
+        height: 25px;
+        margin-right: 15px;
+        path {
+          fill: ${({ theme }) => theme.fontColor};
+        }
+      }
+    }
+  }
 `;
 
 export const Content = styled.div<ITheme>`
-  height: 100vh;
   color: ${({ theme }) => theme.fontColor};
 
   display: flex;
