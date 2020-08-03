@@ -1,8 +1,22 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+
+import api from '../../service/api';
 
 import { Container, Content } from './styles';
 
 const Home: React.FC = () => {
+  const history = useHistory();
+
+  const handleClick = async () => {
+    const lightPromise = api.get('/people/1').then(() => ({ side: 'light' }));
+    const darkPromise = api.get('/people/4').then(() => ({ side: 'dark' }));
+
+    await Promise.race([lightPromise, darkPromise]).then((value) => {
+      return history.push(`/${value.side}`);
+    });
+  };
+
   return (
     <Container>
       <Content>
@@ -13,7 +27,9 @@ const Home: React.FC = () => {
           <h2 className="main__subtitle">FRONTEND CHALLENGE</h2>
         </div>
         <div className="actions">
-          <button type="button">START</button>
+          <button onClick={handleClick} type="button">
+            START
+          </button>
         </div>
       </Content>
     </Container>
