@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   max-width: 1000px;
   margin: auto;
+  padding: 0 20px;
 `;
 
 export const Content = styled.div`
@@ -19,6 +20,9 @@ export const Content = styled.div`
       font-weight: 400;
       font-size: 72px;
       text-align: center;
+      @media (max-width: 800px) {
+        font-size: 64px;
+      }
     }
     &__hire-me {
       font-weight: bold;
