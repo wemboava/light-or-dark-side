@@ -43,6 +43,7 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
+    border: none;
   }
 
   p, h1, h2 {
