@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="./assets/images/logo.png" width="200"/>
+   <img src="./src/assets/images/logo.png" width="500"/>
 </p>
 
 # StarClinic
@@ -13,9 +13,9 @@ Com base no tempo de resposta do serviço e no seu alinhamento da “força”, 
 
 # :construction_worker: Instalação
   - ```yarn install```
-## Testes
+### Testes
   - ```yarn test```
-## Local
+### Local
   - ```yarn start```
-## Produção
+### Produção
   - ```yarn build```
