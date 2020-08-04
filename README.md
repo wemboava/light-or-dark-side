@@ -3,7 +3,10 @@
 </p>
 
 # StarClinic
-
+<p align="center">
+  <a href="https://starclinic.netlify.app/">DEMO</a><br />
+  **Obs: O Chrome esta bloqueando as requisições http do swapi, recomendo abrir em outro browser**
+</p>
 <br />
 
 # :pencil: Descrição
