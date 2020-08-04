@@ -17,12 +17,16 @@ const Home: React.FC = () => {
     const lightPromise = api.get('/people/1').then(() => ({ side: 'light' }));
     const darkPromise = api.get('/people/4').then(() => ({ side: 'dark' }));
 
-    await Promise.race([lightPromise, darkPromise]).then((value) => {
-      // setTimeout is just to show the effect of the loader
-      setTimeout(() => {
-        return history.push(`/${value.side}`);
-      }, 2500);
-    });
+    await Promise.race([lightPromise, darkPromise])
+      .then((value) => {
+        // setTimeout is just to show the effect of the loader
+        setTimeout(() => {
+          return history.push(`/${value.side}`);
+        }, 2500);
+      })
+      .catch(() => {
+        setLoader(false);
+      });
   };
 
   return (
