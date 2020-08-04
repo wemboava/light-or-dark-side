@@ -1,9 +1,21 @@
-## Available Scripts
+<p align="center">
+   <img src="./assets/images/logo.png" width="200"/>
+</p>
 
-In the project directory, you can run:
+# StarClinic
 
-### `yarn start`
+<br />
 
-### `yarn test`
+# :pencil: Descrição
 
-### `yarn build`
+Com base no tempo de resposta do serviço e no seu alinhamento da “força”, aquela requisição que retornar os dados primeiro irá determinar quem será seu mestre e em que lado da força você está alinhado.
+
+
+# :construction_worker: Instalação
+  - ```yarn install```
+## Testes
+  - ```yarn test```
+## Local
+  - ```yarn start```
+## Produção
+  - ```yarn build```
