@@ -24,7 +24,7 @@ jest.mock('../../service/api', () => {
 });
 
 describe('Home Page', () => {
-  it('should not be possible to know the strength side if the request goes wrong', async () => {
+  it('should be possible to know the strength side', async () => {
     beforeEach(() => {
       mockedHistoryPush.mockClear();
     });
@@ -45,7 +45,7 @@ describe('Home Page', () => {
     );
   });
 
-  it('should not be possible to know the strength side', async () => {
+  it('should not be possible to know the strength side if the request goes wrong', async () => {
     beforeEach(() => {
       mockedHistoryPush.mockClear();
     });
