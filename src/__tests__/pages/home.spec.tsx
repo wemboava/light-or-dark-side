@@ -24,20 +24,49 @@ jest.mock('../../service/api', () => {
 });
 
 describe('Home Page', () => {
-  it('should be possible to know the strength side', async () => {
+  it('should not be possible to know the strength side if the request goes wrong', async () => {
+    beforeEach(() => {
+      mockedHistoryPush.mockClear();
+    });
+
     const { getByText } = render(<Home />);
 
-    const searchField = getByText('START');
+    const startButton = getByText('START');
 
     act(() => {
-      fireEvent.click(searchField);
+      fireEvent.click(startButton);
     });
 
     await waitFor(
       () => {
         expect(mockedHistoryPush).toHaveBeenCalledTimes(1);
       },
-      { timeout: 3000 },
+      { timeout: 4000 },
     );
+  });
+
+  it('should not be possible to know the strength side', async () => {
+    beforeEach(() => {
+      mockedHistoryPush.mockClear();
+    });
+
+    jest.mock('../../service/api', () => {
+      return {
+        get: () => {
+          return new Promise(() => {
+            throw new Error();
+          });
+        },
+      };
+    });
+    const { getByText } = render(<Home />);
+
+    const startButton = getByText('START');
+
+    act(() => {
+      fireEvent.click(startButton);
+    });
+
+    expect(mockedHistoryPush).not.toHaveBeenCalled();
   });
 });

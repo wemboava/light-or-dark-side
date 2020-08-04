@@ -30,10 +30,10 @@ describe('Side Page', () => {
   it('should be possible to know the strength side', async () => {
     const { getByText } = render(<Side />);
 
-    const searchField = getByText('choose your path again, Padawan');
+    const chooseButton = getByText('choose your path again, Padawan');
 
     act(() => {
-      fireEvent.click(searchField);
+      fireEvent.click(chooseButton);
     });
 
     await waitFor(
@@ -47,10 +47,10 @@ describe('Side Page', () => {
   it('should be possible to return to the home page', async () => {
     const { getByText } = render(<Side />);
 
-    const searchField = getByText('back');
+    const backButton = getByText('back');
 
     act(() => {
-      fireEvent.click(searchField);
+      fireEvent.click(backButton);
     });
 
     expect(mockedHistoryPush).toHaveBeenCalledWith('/');
